@@ -1,31 +1,11 @@
-@(widgets: Seq[Widget], form: Form[Widget])(implicit messages: play.api.i18n.Messages, request: RequestHeader, csrfConfig: play.filters.csrf.CSRFConfig)
+@(widgets: Seq[Widget], form:Form[Widget])(implicit messages: play.api.i18n.Messages)
 
 @main("Widgets") {
-
-  <h1>Widgets</h1>
-  <table>
-    <thead>
-      <tr><th>Name</th><th>Price</th>
-    </thead>
-    <tbody>
-    @for(w <- widgets) {
-      <tr><td>@w.name</td><td>@w.price</td></tr>
-    }
-    </tbody>
-  </table>
-
-  <hr/>
-
   @helper.form(routes.Application.createWidget) {
-
-    @helper.CSRFshim.formField
-
     @helper.inputText(form("name"))
-
     @helper.inputText(form("price"))
-
+    <h2>TODO form fields</h2>
     <button type="submit">Create widget</button>
-
   }
 
 }

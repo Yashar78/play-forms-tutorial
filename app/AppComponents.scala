@@ -1,4 +1,4 @@
-import controllers.Application
+/*import controllers.Application
 import play.api.ApplicationLoader.Context
 import play.api.BuiltInComponentsFromContext
 import play.api.i18n.{DefaultLangs, DefaultMessagesApi, MessagesApi}
@@ -16,4 +16,4 @@ class AppComponents(context: Context) extends BuiltInComponentsFromContext(conte
   val assets = new controllers.Assets(httpErrorHandler)
   val router: Router = new Routes(httpErrorHandler, appController, assets)
 
-}
+}*/

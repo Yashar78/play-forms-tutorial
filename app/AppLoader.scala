@@ -1,4 +1,4 @@
-import play.api.{ Logger, Application, ApplicationLoader }
+/*import play.api.{ Logger, Application, ApplicationLoader }
 
 import play.api.ApplicationLoader.Context
 
@@ -11,4 +11,4 @@ class AppLoader extends ApplicationLoader {
     components.application
   }
 
-}
+}*/

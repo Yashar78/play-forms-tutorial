@@ -11,8 +11,9 @@ import play.filters.csrf.CSRFConfig
 
 import scala.collection.mutable.ArrayBuffer
 
-class Application(val messagesApi: MessagesApi)(implicit csrfConfig: CSRFConfig) extends Controller with I18nSupport {
+class Application extends Controller {
 
+/*
   private val widgets = ArrayBuffer(
     Widget("Widget 1", 123),
     Widget("Widget 2", 456),
@@ -42,9 +43,44 @@ class Application(val messagesApi: MessagesApi)(implicit csrfConfig: CSRFConfig)
       Redirect(routes.Application.listWidgets)
     })
   }
+*/
+// Rahim code
+private val widgets = ArrayBuffer(
+  Widget("Widget 1", 123),
+  Widget("Widget 2", 456),
+  Widget("Widget 3", 789)
+)
+
+  def index = Action {
+    Ok(views.html.index("Your new application is ready."))
+  }
+
+  def listWidgets = Action { implicit  request =>
+    // Pass an unpopulated form to the template
+    Ok(views.html.listWidgets(widgets.toSeq, Application.createWidgetForm))
+  }
+
+  def createWidget = Action {
+
+    Ok("Hello form")
+  }
+
+  object Application {
+
+   val createWidgetForm = Form(
+   mapping(
+    "name" -> text,
+    "price" -> number
+  )(Widget.apply)(Widget.unapply)
+  )
 
 }
 
+
+
+}
+
+/*
 object Application {
 
   /** The form definition for the "create a widget" form.
@@ -60,3 +96,4 @@ object Application {
 )
 
 }
+*/
